@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t seandolan/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run -e CI=true seandolan/docker-react yarn test
