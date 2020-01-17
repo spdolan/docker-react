@@ -7,3 +7,17 @@ before_install:
 
 script:
   - docker run -e CI=true seandolan/docker-react yarn test
+
+deploy:
+  #in case of bucket_name Error - edge: true
+  provider: elasticbeanstalk
+  region: "us-east-1"
+  app: "docker-react"
+  env: "Docker-env"
+  bucket_name: "elasticbeanstalk-us-east-1-XXXXXXXXXXXX" #from S3 bucket info
+  bucket_path: "docker-react" #before first deploy, should be name of app
+  on:
+    branch: master #let's not deploy feature branch code
+  #access_key_id: $AWS_ACCESS_KEY
+  #secret_access_key: 
+    #secure: "$AWS_SECRET_KEY"

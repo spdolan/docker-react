@@ -16,7 +16,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Works from Docker compose!
+          I've made a change here.
         </a>
       </header>
     </div>
