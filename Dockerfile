@@ -9,6 +9,7 @@ RUN yarn build
 # final step, importing build configuration for run
 # next FROM statement terminates prior block
 FROM nginx
+EXPOSE 80
 COPY --from=builder /app/build /usr/share/nginx/html
 # no CMD, because nginx default is start
 
